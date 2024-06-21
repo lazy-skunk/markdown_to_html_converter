@@ -3,7 +3,7 @@ from typing import List
 import markdown
 from markdown.extensions.extra import ExtraExtension
 
-class MarkdownConverter:
+class MarkdownToHtmlConverter:
     _CURRENT_DIRECTORY = "."
     _MARKDOWN_EXTENSION = ".md"
     _HTML_EXTENSION = ".html"
@@ -47,5 +47,5 @@ class MarkdownConverter:
         print("処理終了ですぜ。")
 
 if __name__ == "__main__":
-    converter = MarkdownConverter()
+    converter = MarkdownToHtmlConverter()
     converter.main()
