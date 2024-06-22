@@ -1,0 +1,13 @@
+.mypy_cache/
+.pytest_cache/
+.vscode/
+htmlcov/
+.coverage
+.dockerignore
+.git/
+.gitignore
+docker-compose.yml
+Dockerfile
+LICENSE.txt
+my_commands.md
+README.md
