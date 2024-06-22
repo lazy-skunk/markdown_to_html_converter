@@ -2,7 +2,7 @@
 
 ## Docker
 ```
-docker images -a
+docker-compose images
 docker-compose ps
 docker-compose build --no-cache
 docker-compose up -d
