@@ -13,10 +13,10 @@ docker-compose down --rmi all
 
 ## プログラム実行 / Running the Program
 ```
-python src/markdown_to_html_converter.py
+python src/app.py
 ```
 
 ## テスト実行 / Running Tests
 ```
-pytest --cov=src.markdown_to_html_converter --cov-report=html tests/
+pytest --cov=src --cov-config=.coveragerc --cov-report=html tests/
 ```
