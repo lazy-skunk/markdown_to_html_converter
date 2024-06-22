@@ -7,22 +7,13 @@ This script converts all Markdown (`.md`) files in the current directory to HTML
 Wouldn't it be great if you could read files with just a double-click? That's why I created this.
 
 ## 必須条件 / Requirements
-- Python 3.x
-- `markdown` package
-
-## インストール / Installation
-次のコマンドでライブラリーを入れてください。  
-To install the required package, run the following command.
-```
-pip install markdown
-```
+- Docker
 
 ## 使い方 / Usage
 次のコマンドはプログラム実行の例です。  
 Instructions and examples on how to use the project.
 ```
-python markdown_to_html_converter.py
+docker-compose up -d --build
+docker-compose exec app python src/app.py
+docker-compose down --rmi all
 ```
-
-## ライセンス / License
-MIT License
