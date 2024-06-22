@@ -21,8 +21,3 @@ python markdown_to_html_converter.py
 ```
 pytest --cov=src.markdown_to_html_converter --cov-report=html tests/
 ```
-
-## 仮想環境の終了 / Deactivating the Virtual Environment
-```
-deactivate
-```
