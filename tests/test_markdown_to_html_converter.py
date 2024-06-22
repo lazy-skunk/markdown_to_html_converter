@@ -1,6 +1,6 @@
 import os
 import pytest
-from markdown_to_html_converter import MarkdownToHtmlConverter
+from src.markdown_to_html_converter import MarkdownToHtmlConverter
 
 @pytest.fixture(scope="module")
 def setup_test_environment():
