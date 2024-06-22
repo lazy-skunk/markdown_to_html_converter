@@ -46,6 +46,6 @@ class MarkdownToHtmlConverter:
             self._write_html_file(html_file, html_content)
         print("処理終了ですぜ。")
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: no cover
     converter = MarkdownToHtmlConverter()
     converter.main()

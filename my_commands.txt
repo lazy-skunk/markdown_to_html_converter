@@ -1,0 +1,21 @@
+// 仮想環境の作成
+PowerShell Set-ExecutionPolicy RemoteSigned CurrentUser
+python -m venv my_venv
+
+// 仮想環境の起動
+cd C:\Users\h0804\Workspace\markdown_converter
+.\my_venv\Scripts\Activate.ps1
+
+// 依存関係
+python.exe -m pip install --upgrade pip
+pip install -r requirements.txt
+pip freeze > requirements.txt
+
+// プログラム実行
+python markdown_to_html_converter.py
+
+// テスト実行
+pytest --cov=markdown_to_html_converter --cov-report=html tests/
+
+// 仮想環境の終了
+deactivate
