@@ -3,13 +3,12 @@
 ## Docker
 ```
 docker images -a
-docker-compose down --rmi all
+docker-compose ps
 docker-compose build --no-cache
 docker-compose up -d
-docker-compose ps
 docker-compose exec app bash
 docker-compose stop
-docker-compose down
+docker-compose down --rmi all
 ```
 
 ## プログラム実行 / Running the Program
