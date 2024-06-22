@@ -14,7 +14,7 @@ docker-compose down
 
 ## プログラム実行 / Running the Program
 ```
-python markdown_to_html_converter.py
+python src/markdown_to_html_converter.py
 ```
 
 ## テスト実行 / Running Tests
