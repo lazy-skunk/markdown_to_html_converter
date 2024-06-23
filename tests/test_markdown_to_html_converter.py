@@ -62,7 +62,7 @@ def test_get_md_files(
 ) -> None:
     test_dir, md_filename, empty_md_filename, _ = setup_test_environment
     converter = MarkdownToHtmlConverter(mock_logger)
-    converter._CURRENT_DIRECTORY = test_dir
+    converter._IO_DIRECTORY = test_dir
     md_files = converter._get_md_files()
 
     expected_files = [md_filename, empty_md_filename]
@@ -77,7 +77,7 @@ def test_get_md_files_oserror(mock_logger: MagicMock) -> None:
         md_files = converter._get_md_files()
         assert md_files == [], "md_files should be an empty list on OSError"
         mock_logger.error.assert_called_with(
-            "Error accessing directory .: Error accessing directory"
+            "Error accessing directory io_content: Error accessing directory"
         )
 
 
@@ -86,7 +86,7 @@ def test_read_md_file(
 ) -> None:
     test_dir, md_filename, _, _ = setup_test_environment
     converter = MarkdownToHtmlConverter()
-    converter._CURRENT_DIRECTORY = test_dir
+    converter._IO_DIRECTORY = test_dir
     content = converter._read_md_file(md_filename)
     assert (
         content == "# Test Markdown\n\nTest!"
@@ -95,7 +95,7 @@ def test_read_md_file(
 
 def test_read_md_file_error(mock_logger: MagicMock) -> None:
     converter = MarkdownToHtmlConverter(mock_logger)
-    converter._CURRENT_DIRECTORY = "non_existing_dir"
+    converter._IO_DIRECTORY = "non_existing_dir"
     content = converter._read_md_file("non_existing_file.md")
     assert (
         content == ""
@@ -107,7 +107,7 @@ def test_read_md_file_error(mock_logger: MagicMock) -> None:
 
 def test_read_md_file_ioerror(mock_logger: MagicMock) -> None:
     converter = MarkdownToHtmlConverter(mock_logger)
-    converter._CURRENT_DIRECTORY = "test_dir"
+    converter._IO_DIRECTORY = "test_dir"
     with patch("builtins.open", mock_open()) as mocked_open:
         mocked_open.side_effect = IOError("Cannot read file")
         content = converter._read_md_file("test.md")
@@ -143,7 +143,7 @@ def test_write_html_file(
 ) -> None:
     test_dir, _, _, html_filename = setup_test_environment
     converter = MarkdownToHtmlConverter()
-    converter._CURRENT_DIRECTORY = test_dir
+    converter._IO_DIRECTORY = test_dir
     html_content = "<h1>Test Markdown</h1>\n\n<p>Test!</p>"
     converter._write_html_file(html_filename, html_content)
 
@@ -161,7 +161,7 @@ def test_write_html_file_error(mock_logger: MagicMock) -> None:
     converter = MarkdownToHtmlConverter(mock_logger)
     with patch("builtins.open", mock_open()) as mocked_open:
         mocked_open.side_effect = IOError("Cannot write file")
-        converter._CURRENT_DIRECTORY = "non_existing_dir"
+        converter._IO_DIRECTORY = "non_existing_dir"
         converter._write_html_file("non_existing_file.html", "content")
         mock_logger.error.assert_called_with(
             "Error writing file non_existing_file.html: Cannot write file"
@@ -173,7 +173,7 @@ def test_main(
 ) -> None:
     test_dir, _, _, html_filename = setup_test_environment
     converter = MarkdownToHtmlConverter(mock_logger)
-    converter._CURRENT_DIRECTORY = test_dir
+    converter._IO_DIRECTORY = test_dir
     converter.main()
 
     assert os.path.exists(
@@ -190,7 +190,7 @@ def test_main_no_md_files(
 ) -> None:
     test_dir = setup_empty_directory
     converter = MarkdownToHtmlConverter(mock_logger)
-    converter._CURRENT_DIRECTORY = test_dir
+    converter._IO_DIRECTORY = test_dir
     converter.main()
     mock_logger.info.assert_called_with("No Markdown files found.")
 
@@ -200,7 +200,7 @@ def test_main_convert_md_content_to_html_content_empty(
 ) -> None:
     test_dir, md_filename, _, _ = setup_test_environment
     converter = MarkdownToHtmlConverter(mock_logger)
-    converter._CURRENT_DIRECTORY = test_dir
+    converter._IO_DIRECTORY = test_dir
 
     with patch.object(converter, "_get_md_files", return_value=[md_filename]):
         with patch.object(

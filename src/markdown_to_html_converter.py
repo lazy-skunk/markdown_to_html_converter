@@ -9,7 +9,7 @@ from src.logger import Logger
 
 
 class MarkdownToHtmlConverter:
-    _CURRENT_DIRECTORY = "."
+    _IO_DIRECTORY = "io_content"
     _MARKDOWN_EXTENSION = ".md"
     _HTML_EXTENSION = ".html"
     _READ_MODE = "r"
@@ -27,19 +27,19 @@ class MarkdownToHtmlConverter:
         try:
             return [
                 md_file
-                for md_file in os.listdir(self._CURRENT_DIRECTORY)
+                for md_file in os.listdir(self._IO_DIRECTORY)
                 if md_file.endswith(self._MARKDOWN_EXTENSION)
             ]
         except OSError as e:
             self.logger.error(
-                f"Error accessing directory {self._CURRENT_DIRECTORY}: {e}"
+                f"Error accessing directory {self._IO_DIRECTORY}: {e}"
             )
             return []
 
     def _read_md_file(self, file_path: str) -> str:
         try:
             with open(
-                os.path.join(self._CURRENT_DIRECTORY, file_path),
+                os.path.join(self._IO_DIRECTORY, file_path),
                 mode=self._READ_MODE,
                 encoding=self._ENCODING,
             ) as md_file:
@@ -60,7 +60,7 @@ class MarkdownToHtmlConverter:
     def _write_html_file(self, html_file_path: str, html_content: str) -> None:
         try:
             with open(
-                os.path.join(self._CURRENT_DIRECTORY, html_file_path),
+                os.path.join(self._IO_DIRECTORY, html_file_path),
                 mode=self._WRITE_MODE,
                 encoding=self._ENCODING,
             ) as html_file:

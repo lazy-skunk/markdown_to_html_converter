@@ -15,13 +15,17 @@ $ cd markdown_to_html_converter
 ```
 
 ### Place your Markdown files
-Place the Markdown (`.md`) files you want to convert in the `markdown_to_html_converter` directory.
+Place the Markdown (`.md`) files you want to convert in the `io_content` directory.
 
 ### Run the application
 ```
 $ docker-compose up -d --build
 $ docker-compose exec app python src/app.py
 ```
+
+### Retrieve the converted files
+After the conversion, you can find the HTML files in the `io_content` directory. 
+
 
 ### Shut down the application
 When you are done, stop and remove the containers, networks, and images created by Docker Compose:
