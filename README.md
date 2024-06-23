@@ -32,5 +32,8 @@ When you are done, stop and remove the containers, networks, and images created 
 $ docker-compose down --rmi all
 ```
 
+## Known Issues and Future Improvements
+- **Code Blocks**: Improve the formatting of code blocks in the converted HTML.
+
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE.txt) file for more details.
