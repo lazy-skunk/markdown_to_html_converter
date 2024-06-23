@@ -1,5 +1,5 @@
 # Markdown to HTML Converter
-This script converts all Markdown (`.md`) files in the current directory to HTML (`.html`) files.
+This script converts all Markdown (`.md`) files in the `io_content` directory to HTML (`.html`) files.
 
 ## Requirements
 - Docker
