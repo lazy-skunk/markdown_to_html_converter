@@ -1,19 +1,30 @@
 # Markdown to HTML Converter
-カレントディレクトリーにある拡張子が md のファイルを html ファイルに変換します。  
 This script converts all Markdown (`.md`) files in the current directory to HTML (`.html`) files.
 
-## 概要 / Overview
-ファイルをダブルクリックするだけで読めたら楽だと思って作成しました。  
-Wouldn't it be great if you could read files with just a double-click? That's why I created this.
-
-## 必須条件 / Requirements
+## Requirements
 - Docker
 
-## 使い方 / Usage
-次のコマンドはプログラム実行の例です。  
+## Usage
 Instructions and examples on how to use the project.
+
+### Clone the repository
+First, clone the repository to your local machine and navigate to the project directory:
 ```
-docker-compose up -d --build
-docker-compose exec app python src/app.py
-docker-compose down --rmi all
+$ git clone https://github.com/lazy-skunk/markdown_to_html_converter.git
+$ cd markdown_to_html_converter
+```
+
+### Place your Markdown files
+Place the Markdown (`.md`) files you want to convert in the `markdown_to_html_converter` directory.
+
+### Run the application
+```
+$ docker-compose up -d --build
+$ docker-compose exec app python src/app.py
+```
+
+### Shut down the application
+When you are done, stop and remove the containers, networks, and images created by Docker Compose:
+```
+$ docker-compose down --rmi all
 ```
