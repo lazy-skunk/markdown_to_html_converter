@@ -1,0 +1,22 @@
+{
+    "python.testing.pytestArgs": [
+        "tests",
+        "--cov=src",
+        "--cov-config=.coveragerc",
+        "--cov-report=html"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+    },
+    "mypy-type-checker.args": [
+        "--disallow-untyped-defs",
+        "--ignore-missing-imports",
+    ],
+    "black-formatter.args": ["--line-length=79"],
+    "flake8.args": ["--max-line-length=79"],
+    "isort.args":["--profile", "black"],
+}
