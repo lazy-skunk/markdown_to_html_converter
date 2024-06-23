@@ -1,7 +1,10 @@
+import logging
 import os
-from typing import List
+from typing import List, Optional
+
 import markdown
 from markdown.extensions.extra import ExtraExtension
+
 from src.logger import Logger
 
 
@@ -13,7 +16,7 @@ class MarkdownToHtmlConverter:
     _WRITE_MODE = "w"
     _ENCODING = "utf-8"
 
-    def __init__(self, logger=None):
+    def __init__(self, logger: Optional[logging.Logger] = None) -> None:
         if logger is None:
             logger_instance = Logger()
             self.logger = logger_instance.get_logger()
@@ -81,9 +84,12 @@ class MarkdownToHtmlConverter:
             if not html_content:
                 continue
 
-            html_file = md_file.replace(self._MARKDOWN_EXTENSION, self._HTML_EXTENSION)
+            html_file = md_file.replace(
+                self._MARKDOWN_EXTENSION, self._HTML_EXTENSION
+            )
             self._write_html_file(html_file, html_content)
 
         self.logger.info(
-            "Congratulations! Markdown to HTML conversion completed!!! Your files are now shiny HTML!"
+            "Congratulations! Markdown to HTML conversion completed!!!"
+            " Your files are now shiny HTML!"
         )
