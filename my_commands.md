@@ -20,3 +20,8 @@ python src/app.py
 ```
 pytest --cov=src --cov-config=.coveragerc --cov-report=html tests/
 ```
+
+## 依存関係 / Manage Dependencies
+```
+pip freeze > requirements.txt
+```
