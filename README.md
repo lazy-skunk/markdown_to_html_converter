@@ -26,9 +26,11 @@ $ docker-compose exec app python src/app.py
 ### Retrieve the converted files
 After the conversion, you can find the HTML files in the `io_content` directory. 
 
-
 ### Shut down the application
 When you are done, stop and remove the containers, networks, and images created by Docker Compose:
 ```
 $ docker-compose down --rmi all
 ```
+
+## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE.txt) file for more details.
