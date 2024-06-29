@@ -6,11 +6,9 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - .:/app
-    ports:
-      - "8000:8000"
+      - .:/mnt/markdown_to_html_converter
     environment:
-      - PYTHONPATH=/app
+      - PYTHONPATH=/mnt/markdown_to_html_converter
       - PYTHONUNBUFFERED=1
     stdin_open: true
     tty: true
