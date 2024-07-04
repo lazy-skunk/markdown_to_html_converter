@@ -4,9 +4,10 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - .:/mnt/markdown_to_html_converter
+      - .:/app
+      - ~/.gitconfig:/root/.gitconfig:ro
     environment:
-      - PYTHONPATH=/mnt/markdown_to_html_converter
+      - PYTHONPATH=/app
       - PYTHONUNBUFFERED=1
     stdin_open: true
     tty: true
