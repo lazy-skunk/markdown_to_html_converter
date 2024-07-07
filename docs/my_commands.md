@@ -9,8 +9,3 @@ $ docker-compose exec app bash
 $ docker-compose stop
 $ docker-compose down --rmi all
 ```
-
-## Manage Dependencies
-```
-$ pip freeze > requirements.txt
-```
