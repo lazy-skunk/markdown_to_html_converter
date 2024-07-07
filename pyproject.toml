@@ -9,17 +9,24 @@ dependencies = [
   "Markdown",
 ]
 requires-python = ">= 3.12"
+authors = [
+  {name = "lazy_skunk"}
+]
+maintainers = {
+  {name = "lazy_skunk"}
+}
+description = "This script converts all Markdown files in the 'io_content' directory to HTML files."
 readme = "README.md"
 license = {file = "LICENSE.txt"}
 
 [project.optional-dependencies]
 dev = [
-    "pytest",
-    "pytest-cov",
-    "black",
-    "flake8",
-    "isort",
-    "mypy",
+  "pytest",
+  "pytest-cov",
+  "black",
+  "flake8",
+  "isort",
+  "mypy",
 ]
 
 [tool.pytest.ini_options]
