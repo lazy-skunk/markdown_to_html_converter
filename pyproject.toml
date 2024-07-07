@@ -12,9 +12,9 @@ requires-python = ">= 3.12"
 authors = [
   {name = "lazy_skunk"}
 ]
-maintainers = {
+maintainers = [
   {name = "lazy_skunk"}
-}
+]
 description = "This script converts all Markdown files in the 'io_content' directory to HTML files."
 readme = "README.md"
 license = {file = "LICENSE.txt"}
