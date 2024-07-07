@@ -7,10 +7,10 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-COPY requirements.txt .
-RUN pip install --upgrade pip &&\
-    pip install --no-cache-dir -r requirements.txt
+RUN pip install --upgrade pip
+COPY pyproject.toml .
+RUN pip install .[dev]
 
 COPY . .
 
-ENTRYPOINT ["bash"] 
+ENTRYPOINT ["bash"]
